@@ -3,6 +3,10 @@ import type { Request, Response } from 'express';
 
 const app = express();
 
+const { default: apiRoutes } = await import('./src/backend/routes.ts');
+
+app.use('/api', apiRoutes);
+
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
