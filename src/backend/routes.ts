@@ -1,7 +1,15 @@
-import express, { type Request, type Response } from 'express';
+import express from 'express';
 import * as controllers from './controllers.js';
+import { anslutTillDatabas } from './db.js';
 
 const router = express.Router();
+
+let dbConnected = false;
+anslutTillDatabas().then(() => {
+  dbConnected = true;
+}).catch((err) => {
+  console.error("MongoDB - anslutningen misslyckades :", err);
+});
 
 router.post('/auth/register', controllers.registrera);
 router.post('/auth/login', controllers.loggaIn);
