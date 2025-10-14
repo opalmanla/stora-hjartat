@@ -38,3 +38,44 @@ export interface AutentiseringsForfragan extends Request {
     anvandarNamn: string;
   };
 }
+
+export interface IdeKommentar {
+  id: string;
+  anvandarId: string;
+  anvandarNamn: string;
+  text: string;
+  skapadVid: Date;
+}
+
+export interface Ide {
+  _id?: ObjectId;
+  titel: string;
+  beskrivning: string;
+  anvandarId: string;
+  anvandarNamn: string;
+  skapadVid: Date;
+  uppdateradVid: Date;
+  kommentarer: IdeKommentar[];
+  favoriseradAv: string[]
+}
+
+export interface SkapaIdeTyp {
+  titel: string;
+  beskrivning: string;
+}
+
+export interface UppdateraIdeTyp {
+  titel?: string;
+  beskrivning?: string;
+}
+
+export interface LaggTillKommentarTyp {
+  text: string;
+}
+
+export interface RegistreraTyp {
+  anvandarNamn: string;
+  losenord: string;
+  fullstandigtNamn: string;
+  ePost: string;
+}
