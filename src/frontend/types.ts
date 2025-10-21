@@ -25,3 +25,14 @@ export interface AppTillstand {
 }
 
 export type Tillstandslyssnare = (tillstand: AppTillstand) => void;
+
+export interface Ide {
+  _id?: { $oid?: string } | string;
+  titel: string;
+  beskrivning: string;
+  anvandarNamn: string;
+  anvandarId: string;
+  skapadVid?: Date | string;
+  kommentarer?: any[];
+  favoriseradAv?: string[];
+}
